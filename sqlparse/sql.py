@@ -279,6 +279,7 @@ class TokenList(Token):
         return self._token_matching(funcs, idx)
 
     def token_matching(self, funcs, idx):
+        # P1 R2 probe 1: exercise commit-anchored fact invalidation.
         return self._token_matching(funcs, idx)[1]
 
     def token_prev(self, idx, skip_ws=True, skip_cm=False):
