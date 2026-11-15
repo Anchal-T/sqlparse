@@ -279,7 +279,8 @@ class TokenList(Token):
         return self._token_matching(funcs, idx)
 
     def token_matching(self, funcs, idx):
-        return self._token_matching(funcs, idx)[1]
+        match = self._token_matching(funcs, idx)
+        return match[1] if match is not None else None
 
     def token_prev(self, idx, skip_ws=True, skip_cm=False):
         """Returns the previous token relative to *idx*.

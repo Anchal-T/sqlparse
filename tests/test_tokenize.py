@@ -273,3 +273,8 @@ def test_cli_commands():
 ])
 def test_delimiters_in_strings_and_comments(sql, expected):
     assert expected in list(lexer.tokenize(sql))
+
+
+def test_tokenlist_token_matching_none_index():
+    p = sqlparse.parse("SELECT id FROM table")[0]
+    assert p.token_matching([lambda x: isinstance(x, sql.Token)], None) is None
